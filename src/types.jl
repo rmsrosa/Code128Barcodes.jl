@@ -20,7 +20,7 @@ A `Code128` can be created from
 * a message: `Code128(msg)`, or `Code128(msg, encoding_type)`, with `encoding_type` being
   either `:code128` (the default, which chooses the code sets with the minimal number of symbols),
   `:code128a`, `:code128b`, or `:code128c`, or `:gs1128` for a GS1-128, see [`gs1_element_string`](@ref);
-* a vector with the names of the symbols, as returned by `Barcodes.encode`;
+* a vector with the names of the symbols, as returned by `Code128Barcodes.encode`;
 * a vector with the values of the symbols.
 
 It throws an `ArgumentError` if the message cannot be encoded, or if the code is not a valid
@@ -29,7 +29,7 @@ Code128 (for instance, if it does not start with a `START` symbol, or if the che
 # Examples
 
 ```jldoctest
-julia> b = Barcodes.Code128("12345678");
+julia> b = Code128Barcodes.Code128("12345678");
 
 julia> println(b)
 Code128("12345678")
@@ -44,13 +44,13 @@ julia> b.values
  0x2f
  0x6a
 
-julia> Barcodes.Code128(Barcodes.codenames(b)) == b
+julia> Code128Barcodes.Code128(Code128Barcodes.codenames(b)) == b
 true
 
-julia> Barcodes.Code128(b.values) == b
+julia> Code128Barcodes.Code128(b.values) == b
 true
 
-julia> println(Barcodes.Code128("ABC", :code128a))
+julia> println(Code128Barcodes.Code128("ABC", :code128a))
 Code128("ABC")
 ```
 """
@@ -79,7 +79,7 @@ Return the message encoded in the `barcode`.
 # Examples
 
 ```jldoctest
-julia> Barcodes.message(Barcodes.Code128("\\x02abc1234\\x03"))
+julia> Code128Barcodes.message(Code128Barcodes.Code128("\\x02abc1234\\x03"))
 "\\x02abc1234\\x03"
 ```
 """
@@ -93,7 +93,7 @@ Return the names of the symbols of the `barcode`, as a vector of strings.
 # Examples
 
 ```jldoctest
-julia> Barcodes.codenames(Barcodes.Code128("Héllo"))
+julia> Code128Barcodes.codenames(Code128Barcodes.Code128("Héllo"))
 9-element Vector{String}:
  "START B"
  "H"
@@ -119,7 +119,7 @@ symbols, each one multiplied by its position (starting with 1 for the first symb
 # Examples
 
 ```jldoctest
-julia> Barcodes.checksum(Barcodes.Code128("12345678"))
+julia> Code128Barcodes.checksum(Code128Barcodes.Code128("12345678"))
 47
 ```
 """
@@ -134,13 +134,13 @@ mixes different code sets.
 # Examples
 
 ```jldoctest
-julia> Barcodes.subtype(Barcodes.Code128("12345678"))
+julia> Code128Barcodes.subtype(Code128Barcodes.Code128("12345678"))
 :code128c
 
-julia> Barcodes.subtype(Barcodes.Code128("ABC", :code128a))
+julia> Code128Barcodes.subtype(Code128Barcodes.Code128("ABC", :code128a))
 :code128a
 
-julia> Barcodes.subtype(Barcodes.Code128("abc1234"))
+julia> Code128Barcodes.subtype(Code128Barcodes.Code128("abc1234"))
 :code128
 ```
 """
@@ -167,10 +167,10 @@ right after the START symbol.
 # Examples
 
 ```jldoctest
-julia> Barcodes.isgs1128(Barcodes.Code128("0109501101530003", :gs1128))
+julia> Code128Barcodes.isgs1128(Code128Barcodes.Code128("0109501101530003", :gs1128))
 true
 
-julia> Barcodes.isgs1128(Barcodes.Code128("0109501101530003"))
+julia> Code128Barcodes.isgs1128(Code128Barcodes.Code128("0109501101530003"))
 false
 ```
 """
@@ -185,7 +185,7 @@ Return the barcode pattern of the `barcode`, a string of 0's and 1's, as in
 # Examples
 
 ```jldoctest
-julia> Barcodes.barcode_pattern(Barcodes.Code128("ABC")) == Barcodes.barcode_pattern("ABC", :code128)
+julia> Code128Barcodes.barcode_pattern(Code128Barcodes.Code128("ABC")) == Code128Barcodes.barcode_pattern("ABC", :code128)
 true
 ```
 """
