@@ -13,7 +13,7 @@ by `FileIO`, and resize it with [JuliaImages](https://juliaimages.org/stable/).
 # Examples
 
 ```jldoctest
-julia> img = Barcodes.barcode_img("0110"; img_height = 3);
+julia> img = Code128Barcodes.barcode_img("0110"; img_height = 3);
 
 julia> size(img)
 (5, 4)
@@ -50,7 +50,7 @@ This is useful for drawing the barcode with a plotting package, as in the manual
 # Examples
 
 ```jldoctest
-julia> x, w = Barcodes.barcode_positions("0110100111000")
+julia> x, w = Code128Barcodes.barcode_positions("0110100111000")
 ([2, 5, 8], [2, 1, 3])
 ```
 """
@@ -88,9 +88,9 @@ The `pattern` should be a complete barcode pattern, as returned by [`barcode_pat
 # Examples
 
 ```jldoctest
-julia> pattern = Barcodes.barcode_pattern("12345678", :code128);
+julia> pattern = Code128Barcodes.barcode_pattern("12345678", :code128);
 
-julia> Barcodes.barcode_widths(pattern)
+julia> Code128Barcodes.barcode_widths(pattern)
 "211232112232131123331121241112133121233111"
 ```
 """

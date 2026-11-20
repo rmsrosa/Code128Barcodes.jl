@@ -28,13 +28,13 @@ the checksum, which should be either `CHECKSUM` or `CHECKSUM n`, and it is alway
 # Examples
 
 ```jldoctest
-julia> pattern = Barcodes.barcode_pattern(
+julia> pattern = Code128Barcodes.barcode_pattern(
            ["START C", "00", "01", "32", "CHECKSUM", "STOP"],
            :code128
        )
 "000000000001101001110011011001100110011011001100011011010111101110110001110101100000000000"
 
-julia> pattern = Barcodes.barcode_pattern(
+julia> pattern = Code128Barcodes.barcode_pattern(
            ["START A", "A", "B", "C", "CHECKSUM", "STOP"],
            :code128
        )
@@ -67,13 +67,13 @@ The pattern is returned as a string of 0's and 1's, with the proper quiet zones,
 # Examples
 
 ```jldoctest
-julia> Barcodes.barcode_pattern("ABC", :code128)
+julia> Code128Barcodes.barcode_pattern("ABC", :code128)
 "000000000001101001000010100011000100010110001000100011011001101100110001110101100000000000"
 
-julia> Barcodes.barcode_pattern("ABC", :code128b) == Barcodes.barcode_pattern("ABC", :code128)
+julia> Code128Barcodes.barcode_pattern("ABC", :code128b) == Code128Barcodes.barcode_pattern("ABC", :code128)
 true
 
-julia> Barcodes.barcode_pattern("ABC", :code128a) == Barcodes.barcode_pattern("ABC", :code128)
+julia> Code128Barcodes.barcode_pattern("ABC", :code128a) == Code128Barcodes.barcode_pattern("ABC", :code128)
 false
 ```
 """
@@ -134,9 +134,9 @@ its checksum is wrong.
 # Examples
 
 ```jldoctest
-julia> pattern = Barcodes.barcode_pattern("ABC", :code128);
+julia> pattern = Code128Barcodes.barcode_pattern("ABC", :code128);
 
-julia> Barcodes.barcode_depattern(pattern, :code128)
+julia> Code128Barcodes.barcode_depattern(pattern, :code128)
 6-element Vector{String}:
  "START B"
  "A"
@@ -164,9 +164,9 @@ its checksum is wrong.
 # Examples
 
 ```jldoctest
-julia> pattern = Barcodes.barcode_pattern("Héllo", :code128);
+julia> pattern = Code128Barcodes.barcode_pattern("Héllo", :code128);
 
-julia> Barcodes.barcode_decode(pattern, :code128)
+julia> Code128Barcodes.barcode_decode(pattern, :code128)
 "Héllo"
 ```
 """
@@ -190,7 +190,7 @@ which breaks the image.
 # Examples
 
 ```jldoctest
-julia> Barcodes.utf8block_pattern("0110100111000")
+julia> Code128Barcodes.utf8block_pattern("0110100111000")
 "▐▌▌▐█  "
 ```
 """

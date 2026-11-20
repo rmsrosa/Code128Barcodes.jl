@@ -334,7 +334,7 @@ or two to switch an extended mode on, whatever uses fewer symbols. In the subtyp
 # Examples
 
 ```jldoctest
-julia> code = Barcodes.encode("000132", :code128c)
+julia> code = Code128Barcodes.encode("000132", :code128c)
 6-element Vector{String}:
  "START C"
  "00"
@@ -343,7 +343,7 @@ julia> code = Barcodes.encode("000132", :code128c)
  "CHECKSUM 100"
  "STOP"
 
-julia> code = Barcodes.encode("ABC", :code128a)
+julia> code = Code128Barcodes.encode("ABC", :code128a)
 6-element Vector{String}:
  "START A"
  "A"
@@ -352,7 +352,7 @@ julia> code = Barcodes.encode("ABC", :code128a)
  "CHECKSUM 0"
  "STOP"
 
-julia> Barcodes.encode("(01)09501101530003", :gs1128)
+julia> Code128Barcodes.encode("(01)09501101530003", :gs1128)
 12-element Vector{String}:
  "START C"
  "FNC 1"
@@ -367,7 +367,7 @@ julia> Barcodes.encode("(01)09501101530003", :gs1128)
  "CHECKSUM 71"
  "STOP"
 
-julia> code = Barcodes.encode("é", :code128)
+julia> code = Code128Barcodes.encode("é", :code128)
 5-element Vector{String}:
  "START B"
  "FNC 4"
@@ -391,7 +391,7 @@ Currently, only Code128 specification is available.
 # Examples
 
 ```jldoctest
-julia> code = Barcodes.encode("\\x02ABC\\x03", :code128)
+julia> code = Code128Barcodes.encode("\\x02ABC\\x03", :code128)
 8-element Vector{String}:
  "START A"
  "STX"
@@ -402,7 +402,7 @@ julia> code = Barcodes.encode("\\x02ABC\\x03", :code128)
  "CHECKSUM 91"
  "STOP"
 
-julia> Barcodes.decode(code, :code128)
+julia> Code128Barcodes.decode(code, :code128)
 "\\x02ABC\\x03"
 ```
 """
@@ -430,7 +430,7 @@ The only encoding types implemented so far are `:code128`, `:code128a`, `:code12
 # Examples
 
 ```jldoctest
-julia> Barcodes.checksum(["START C", "00", "01", "32", "CHECKSUM", "STOP"], :code128)
+julia> Code128Barcodes.checksum(["START C", "00", "01", "32", "CHECKSUM", "STOP"], :code128)
 100
 ```
 """

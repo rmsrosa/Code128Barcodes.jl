@@ -1,16 +1,16 @@
 using Documenter
-using Barcodes
+using Code128Barcodes
 
-# The examples in the docstrings can use `Barcodes` without loading it.
-DocMeta.setdocmeta!(Barcodes, :DocTestSetup, :(using Barcodes); recursive = true)
+# The examples in the docstrings can use `Code128Barcodes` without loading it.
+DocMeta.setdocmeta!(Code128Barcodes, :DocTestSetup, :(using Code128Barcodes); recursive = true)
 
 makedocs(;
-    modules = [Barcodes],
+    modules = [Code128Barcodes],
     authors = "Ricardo Rosa <rmsrosa@gmail.com>",
-    sitename = "Barcodes.jl",
+    sitename = "Code128Barcodes.jl",
     format = Documenter.HTML(;
         prettyurls = get(ENV, "CI", "false") == "true",
-        canonical = "https://rmsrosa.github.io/Barcodes.jl",
+        canonical = "https://rmsrosa.github.io/Code128Barcodes.jl",
         edit_link = "main",
     ),
     pages = [
@@ -21,4 +21,4 @@ makedocs(;
     doctest = true,
 )
 
-deploydocs(; repo = "github.com/rmsrosa/Barcodes.jl", devbranch = "main")
+deploydocs(; repo = "github.com/rmsrosa/Code128Barcodes.jl", devbranch = "main")

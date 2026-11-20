@@ -1,6 +1,6 @@
-module Barcodes
+module Code128Barcodes
 
-using Images: Gray
+using ColorTypes: Gray
 
 include("code128_charset.jl")
 include("code128_symbols.jl")

@@ -47,10 +47,10 @@ It throws an `ArgumentError` if the `hri` is not of that form.
 # Examples
 
 ```jldoctest
-julia> Barcodes.gs1_element_string("(01)09501101530003(17)140704")
+julia> Code128Barcodes.gs1_element_string("(01)09501101530003(17)140704")
 "010950110153000317140704"
 
-julia> Barcodes.gs1_element_string("(10)ABC123(21)XYZ")
+julia> Code128Barcodes.gs1_element_string("(10)ABC123(21)XYZ")
 "10ABC123\\x1d21XYZ"
 ```
 """

@@ -1,50 +1,50 @@
 # API
 
-None of the names is exported, so they are all used with the prefix `Barcodes.`.
+None of the names is exported, so they are all used with the prefix `Code128Barcodes.`.
 
 ## Encoding and decoding
 
 ```@docs
-Barcodes.encode
-Barcodes.decode
-Barcodes.checksum(::AbstractVector{<:AbstractString}, ::Symbol)
+Code128Barcodes.encode
+Code128Barcodes.decode
+Code128Barcodes.checksum(::AbstractVector{<:AbstractString}, ::Symbol)
 ```
 
 ## Patterns
 
 ```@docs
-Barcodes.barcode_pattern(::AbstractVector{<:AbstractString}, ::Symbol)
-Barcodes.barcode_pattern(::AbstractString, ::Symbol)
-Barcodes.barcode_depattern
-Barcodes.barcode_decode
-Barcodes.barcode_widths
-Barcodes.barcode_positions
-Barcodes.utf8block_pattern
+Code128Barcodes.barcode_pattern(::AbstractVector{<:AbstractString}, ::Symbol)
+Code128Barcodes.barcode_pattern(::AbstractString, ::Symbol)
+Code128Barcodes.barcode_depattern
+Code128Barcodes.barcode_decode
+Code128Barcodes.barcode_widths
+Code128Barcodes.barcode_positions
+Code128Barcodes.utf8block_pattern
 ```
 
 ## GS1-128
 
 ```@docs
-Barcodes.gs1_element_string
-Barcodes.isgs1128
+Code128Barcodes.gs1_element_string
+Code128Barcodes.isgs1128
 ```
 
 ## Images
 
 ```@docs
-Barcodes.barcode_img
+Code128Barcodes.barcode_img
 ```
 
 ## The `Code128` type
 
 ```@docs
-Barcodes.Barcode
-Barcodes.Code128
-Barcodes.message
-Barcodes.codenames
-Barcodes.subtype
-Barcodes.checksum(::Barcodes.Code128)
-Barcodes.barcode_pattern(::Barcodes.Code128)
+Code128Barcodes.Barcode
+Code128Barcodes.Code128
+Code128Barcodes.message
+Code128Barcodes.codenames
+Code128Barcodes.subtype
+Code128Barcodes.checksum(::Code128Barcodes.Code128)
+Code128Barcodes.barcode_pattern(::Code128Barcodes.Code128)
 ```
 
 ## Internals
@@ -52,11 +52,11 @@ Barcodes.barcode_pattern(::Barcodes.Code128)
 These are implementation details, documented for the sake of the developers. They are not part of the stable API and may change without notice.
 
 ```@docs
-Barcodes.CodeSet
-Barcodes.CODE128
-Barcodes.CODE128_PATTERNS
-Barcodes.CODE128_NAMES
-Barcodes.CODE128_NAME2VALUE
-Barcodes.CODE128_PATTERN2VALUE
-Barcodes._encode_values(::AbstractString, ::Symbol)
+Code128Barcodes.CodeSet
+Code128Barcodes.CODE128
+Code128Barcodes.CODE128_PATTERNS
+Code128Barcodes.CODE128_NAMES
+Code128Barcodes.CODE128_NAME2VALUE
+Code128Barcodes.CODE128_PATTERN2VALUE
+Code128Barcodes._encode_values(::AbstractString, ::Symbol)
 ```
