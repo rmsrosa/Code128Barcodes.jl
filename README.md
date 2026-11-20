@@ -5,7 +5,7 @@
 [![Docs](https://img.shields.io/badge/docs-dev-blue.svg)](https://rmsrosa.github.io/Code128Barcodes.jl/dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub repo size](https://img.shields.io/github/repo-size/rmsrosa/Code128Barcodes.jl)
 
-![Logo](img/barcodesjl_ink.svg)
+![Logo](img/code128barcodesjl_ink.svg)
 
 A pure-Julia [Code128](https://en.wikipedia.org/wiki/Code_128) barcode generator.
 
@@ -128,26 +128,26 @@ julia> Code128Barcodes.barcode_widths(pattern)
 "211232112232131123331121241112133121233111"
 ```
 
-### Barcode social preview image for Barcodes.jl
+### Barcode social preview image for Code128Barcodes.jl
 
-The image for the github social preview of this package was created from the barcode for "Barcodes.jl" (the former name of this package), with
+The image for the github social preview of this package was created from the barcode for "Code128Barcodes.jl", with
 
 ```julia
-julia> msg = "Barcodes.jl"
-"Barcodes.jl"
+julia> msg = "Code128Barcodes.jl"
+"Code128Barcodes.jl.jl"
 
 julia> pattern = Code128Barcodes.barcode_pattern(msg, :code128)
-"0000000000011010010000100010110001001011000010010011110100001011001000111101010000100110101100100001011110010010011001110100001100101100101000010001001100110001110101100000000000"
+"000000000001101001000010001000110100011110101000010011010110010000100111001101100111001011101001100100010110001001011000010010011110100001011001000111101010000100110101100100001011110010010011001110100001100101100101000010110111000110001110101100000000000"
 
 julia> x, w = Code128Barcodes.barcode_positions(pattern)
-([12, 15, 18, 23, 27, 29, 34, 37, 39, 45  …  133, 137, 139, 144, 148, 151, 155, 160, 164, 166], [2, 1, 1, 1, 1, 2, 1, 1, 2, 1  …  2, 1, 1, 1, 1, 2, 2, 3, 1, 2])
+([12, 15, 18, 23, 27, 31, 34, 38, 43, 45  …  210, 214, 216, 221, 223, 226, 232, 237, 241, 243], [2, 1, 1, 1, 1, 2, 1, 4, 1, 1  …  2, 1, 1, 1, 2, 3, 2, 3, 1, 2])
 
 julia> plot([x'; x' + w'], ones(2, length(x)), color = :black, fill = true, xlims = (1, length(pattern)),  ylims = (0, 1), border = :none, legend = nothing, size = (896, 448))
 
-julia> savefig("img/barcodesjl.svg")
+julia> savefig("img/code128barcodesjl.svg")
 ```
 
-We save the barcode plot to `SVG` and added the text and extra margins with [Inkspace](https://inkscape.org), adjusting the size to 1280 x 640.
+We save the barcode plot to `SVG` and edited it in [Inkspace](https://inkscape.org) to add the text in Arial black normal and the extra margins to adjust the size to 1280 x 640.
 
 ### Mixed subtypes
 
